@@ -2,8 +2,16 @@
   <div>
     <h1>Countries</h1>
     <div class="main-container">
-      <countries-list :countries='countries'></countries-list>
+      <!-- <countries-list :countries='countries'></countries-list> -->
+
+      <label for="country_select">Select a Country:</label>
+      <select id="country_select" v-model="selectedCountry">
+        <option disabled value="">Select a Country</option>
+        <option v-for="country in countries" :value="country">{{country.name}}</option>
+      </select>
+
       <country-detail :country='selectedCountry'></country-detail>
+
     </div>
   </div>
 </template>
@@ -40,6 +48,6 @@ export default {
 <style lang="css" scoped>
   .main-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 </style>
